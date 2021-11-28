@@ -1,0 +1,20 @@
+
+. Example
+
+~spgen~
+table projects_meta
+{
+    @GROUP_ID:                        Int*
+    @PROJECT_ID:                      Int*
+    @PROJECT_META_ID:                 Int^
+    @project_meta_development_domain: Text
+
+    %Filter   = GROUP_ID; PROJECT_ID
+    %Module   = _example
+    %Output   = mysql
+    %OrderBy  = project_name
+    %Prefix   = project_meta_
+    %Security = INVOKER
+    %View     = view_projects_meta
+}
+~
