@@ -30,7 +30,7 @@ copy:
 xattr:
 	xattr -rd com.apple.metadata:kMDLabel_2lrcdw32xqyl7c4b3fukng4qfi source/mt 
 
-install:
+install: all
 	mkdir -p _install/$(version)
 	rm    -f _install/$(version)/*.sql
 	cat $(baseschema) $(spgen) $(schema) $(sp) $(events) > _install/$(version)/$(prefix)$(version)-$(now).sql
