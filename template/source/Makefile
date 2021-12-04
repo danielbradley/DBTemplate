@@ -3,7 +3,7 @@ target=_sql
 osname=$(shell uname)
 extract=../libexec/Extract/bin/$(osname)/extract
 
-all: dir spgen tables functions views fixed_data stored_procedures final events test testing check
+all: $(extract) dir spgen tables functions views fixed_data stored_procedures final events test testing check
 
 dir:
 	mkdir -p _sql
@@ -47,6 +47,9 @@ check:
 	file _sql/tmp-$(project)-sp.sql
 	file _sql/tmp-$(project)-events.sql
 	file _sql/tmp-$(project)-testing.sql
+
+$(extract):
+	make -C ../libexec all
 
 clean:
 	rm -rf _sql
